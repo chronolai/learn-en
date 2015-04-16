@@ -1,0 +1,51 @@
+var c,x,y,z;
+
+function rand(){
+	x = 0;
+	//x = Math.floor(Math.random()*(en.length));
+	y = Math.floor(Math.random()*(en[x].length));
+	z = Math.floor(Math.random()*4+1);
+}
+
+function print(){
+	for(i=0;i<=5;i++){
+		c=0;
+		for(j=0;j<=en[i].length-1;j++){
+			if(en[i][j][4]==1){c=c+1;}
+		}
+		$((i+1)+"c").innerHTML = " ( " + c + " / " + en[i].length + " )";
+	}
+	for(i=1;i<=4;i++){
+		rand();
+		$("answer" + i).innerHTML = "<a href=\"javascript:answer('" + i + "');\">" + en[x][y][2] + "</a>";
+	}
+	rand();
+	if(en[x][y][4]==0){
+		$("print").innerHTML = en[x][y][1];
+		$("answer" + z).innerHTML = "<a href=\"javascript:answer('" + z + "');\">" + en[x][y][2] + "</a>";
+	}
+	else{
+		print();
+	}
+}
+
+function answer(text){
+	if(z==text){
+		$("answer").innerHTML = "";
+		en[x][y][4]=1;
+		print();
+	}
+	else{
+		$("answer").innerHTML = "ERROR";
+	}
+}
+
+function tip(){
+	$("answer").innerHTML = en[x][y][0] ;
+}
+
+
+function keyin(k){
+	if(k==13){}
+	if(k==16){tip();}
+}

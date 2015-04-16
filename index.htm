@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>英文單字測驗系統</title>
+		<script type="text/javascript" src="./kurono.js"></script>
+		<script type="text/javascript" src="./array.js"></script>
+		<script type="text/javascript" src="./function.js"></script>
+	</head>
+	<body onKeyDown="keyin(event.keyCode);">
+		<select id="book" onchange="print()">
+			<option value="0" selected>第一冊</option>
+			<option value="1">第二冊</option>
+			<option value="2">第三冊</option>
+			<option value="3">第四冊</option>
+			<option value="4">第五冊</option>
+			<option value="5">第六冊</option>
+		</select>
+		= <span id="amount"></span>
+		題型：<a href="javascript:mode();">中/英</a><span id="score"></span>
+		<div style="text-align:right;">by 資三仁's 賴柏翰</div>
+		<div id="print"></div>
+		<script>
+			print();
+		</script>
+	</body>
+</html>
